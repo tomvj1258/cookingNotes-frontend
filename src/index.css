@@ -1,0 +1,107 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+body {
+   font-family: "Poppins", sans-serif;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+   .container {
+      @apply max-w-full w-[1440px] px-5 mx-auto;
+   }
+
+   .btn {
+      @apply bg-primaryColor py-[15px] px-[35px] rounded-[50px] text-white font-[600] mt-[38px] mx-auto hover:bg-green-700;
+   }
+
+   .heading {
+      @apply text-[45px] leading-[54px] font-[600] text-headingColor;
+   }
+
+   .head-2 {
+      @apply text-headingColor text-[25px] lg:text-[40px] leading-[40px] lg:leading-[54px] font-[600];
+   }
+
+   .text-para {
+      @apply text-[26px] leading-[45px] lg:text-[20px] lg:leading-[35px] font-[500] text-textColor mt-[18px];
+   }
+
+   /* .menu {
+      @apply w-[15rem] h-full absolute top-0 right-0 bg-gradient-to-tl from-secondaryColor via-gray-100 to-secondaryColor flex flex-col items-center leading-7 z-50 pt-12;
+   }
+
+   .show-menu {
+      @apply block;
+   } */
+}
+
+@media only screen and (max-width: 1024px) {
+   .container {
+      @apply w-full;
+   }
+
+   section {
+      @apply py-[35px];
+   }
+}
+
+@media only screen and (max-width: 768px) {
+   .heading {
+      @apply text-[26px] leading-[36px];
+   }
+
+   .text-para {
+      @apply text-[16px] leading-7 mt-3;
+   }
+}
+
+@media only screen and (max-width: 768px) {
+   .navigate {
+      width: 100%;
+      height: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 100;
+      background: #a8a6a684;
+      display: none;
+   }
+
+   .menu {
+      @apply w-[15rem] h-full absolute top-0 right-0 bg-gradient-to-b from-green-200 via-gray-100 to-green-300 flex flex-col items-center leading-7 z-50 pt-12;
+   }
+
+   .show-menu {
+      @apply block;
+   }
+
+   /* .menu {
+      width: 15rem;
+      height: 100%;
+      border-top-left-radius: 1.5rem;
+      border-bottom-left-radius: 1.5rem;
+      position: absolute;
+      top: 0;
+      right: 0;
+      background: #fff;
+      z-index: 200;
+      margin-top: 60px;
+      padding-top: 50px;
+      flex-direction: column;
+      align-items: center;
+      line-height: 30px;
+   }
+
+   .show-menu {
+      display: block;
+   } */
+}
