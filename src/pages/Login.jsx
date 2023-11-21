@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { Link, NavLink, useNavigate } from "react-router-dom";
-import loginImg from "../assets/login.svg";
+import { NavLink, useNavigate } from "react-router-dom";
+import loginImg from "../assets/images/login.svg";
 import { useCookies } from "react-cookie";
 import axios from "axios";
 import { BASE_URL } from "../config/config";

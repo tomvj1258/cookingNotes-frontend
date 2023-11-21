@@ -3,7 +3,8 @@ import { Route, Routes } from "react-router-dom";
 import Home from "../pages/Home";
 import SavedRecipes from "../pages/SavedRecipes";
 import CreateRecipes from "../pages/CreateRecipes";
-import SavedRecipesList from "../components/saved/SavedRecipesList";
+import RecipesList from "../components/Recipes/RecipesList";
+import RecipesDetails from "../components/Recipes/RecipesDetails";
 import Login from "../pages/Login";
 import Signup from "../pages/Signup";
 import SidePanel from "../pages/SidePanel";
@@ -19,9 +20,10 @@ const Router = () => {
                <Route path='sidepanel' element={<SidePanel />} />
                <Route path='login' element={<Login />} />
                <Route path='register' element={<Signup />} />
-               <Route path='saved-recipes'>
-                  <Route index element={<SavedRecipes />} />
-                  <Route path=':id' element={<SavedRecipesList />} />
+               <Route path='saved-recipes' element={<SavedRecipes />} />
+               <Route path='recipes'>
+                  <Route index element={<RecipesList />} />
+                  <Route path=':id' element={<RecipesDetails />} />
                </Route>
             </Route>
          </Routes>

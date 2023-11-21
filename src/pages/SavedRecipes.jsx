@@ -2,14 +2,19 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { BASE_URL } from "../config/config";
 import { BsArrowRight } from "react-icons/bs";
-import { Link } from "react-router-dom";
-import cardImg from "../assets/heroImg3.jpg";
+import { Link, useNavigate } from "react-router-dom";
+import cardImg from "../assets/images/heroImg3.jpg";
 import useGetUserId from "../hooks/useGetUserId";
+import { Cookies, useCookies } from "react-cookie";
 
 const SavedRecipes = () => {
    const [savedRecipes, setSavedRecipes] = useState([]);
 
+   const [cookies, _] = useCookies(["access_token"]);
+
    const userId = useGetUserId();
+
+   const navigate = useNavigate();
 
    useEffect(() => {
       const fetchSavedRecipes = async () => {
@@ -24,7 +29,11 @@ const SavedRecipes = () => {
          }
       };
 
-      fetchSavedRecipes();
+      if (cookies.access_token) {
+         fetchSavedRecipes();
+      } else {
+         navigate("/home");
+      }
    }, [savedRecipes]);
 
    return (
@@ -58,19 +67,19 @@ const SavedRecipes = () => {
 
                   <div className='grid grid-cols-5 gap-3 '>
                      <div className='col-span-5   relative'>
-                        <ul className=' grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-16 md:gap-10 w-full shadow-2xl rounded-xl '>
+                        <div className=' grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-16 md:gap-10 w-full shadow-2xl rounded-xl '>
                            {Array.isArray(savedRecipes) &&
                               savedRecipes.map((recipe) => (
-                                 <>
+                                 <ul>
                                     <li
                                        key={recipe._id}
                                        className='shadow-2xl rounded-xl col-span-1 px-3  '
                                     >
                                        <figure className='shadow-lg w-full  mb-5'>
                                           <img
-                                             src={cardImg}
+                                             src={recipe.image}
                                              alt={recipe.title}
-                                             className='rounded-lg overflow-hidden'
+                                             className='rounded-lg w-[700px] h-[400px] overflow-hidden'
                                           />
                                        </figure>
                                        <div className='flex flex-col gap-2 '>
@@ -120,9 +129,9 @@ const SavedRecipes = () => {
                                           </div>
                                        </div>
                                     </li>
-                                 </>
+                                 </ul>
                               ))}
-                        </ul>
+                        </div>
                      </div>
                   </div>
                </div>

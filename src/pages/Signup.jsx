@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import signupImg from "../assets/signup.svg";
+import signupImg from "../assets/images/signup.svg";
 import axios from "axios";
 import { BASE_URL } from "../config/config";
 

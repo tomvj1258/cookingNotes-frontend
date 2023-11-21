@@ -21,13 +21,13 @@ const Header = () => {
       },
       {
          id: 2,
-         path: "create-recipes",
-         name: "Create Recipe",
+         path: "recipes",
+         name: "Recipes",
       },
       // {
       //    id: 3,
-      //    path: "saved-recipes",
-      //    name: "Saved Recipe",
+      //    path: "create-recipes",
+      //    name: "Create Recipes",
       // },
       // {
       //    id: 4,
@@ -50,8 +50,8 @@ const Header = () => {
                <div className='flex items-center justify-between '>
                   <div className=''>
                      <Link to='/'>
-                        <h1 className=' text-[20px] leading-7 lg:text-[35px] text-headingColor lg:leading-10 font-[500] m-2 '>
-                           Cooking Notes
+                        <h1 className=' text-[30px] leading-7 lg:text-[40px] text-headingColor lg:leading-10 font-[700] font-mono m-2 '>
+                           TastyBites
                         </h1>
                      </Link>
                   </div>
@@ -64,7 +64,7 @@ const Header = () => {
                                     to={nav.path}
                                     className={(navClass) =>
                                        navClass.isActive
-                                          ? "text-primaryColor text-[20px] leading-7 font-[700]"
+                                          ? "text-secondaryColor text-[20px] leading-7 font-[700]"
                                           : "text-textColor text-[20px] leading-7 font-[600] hover:text-primaryColor"
                                     }
                                  >
@@ -73,6 +73,21 @@ const Header = () => {
                               </li>
                            );
                         })}
+
+                        <div className=''>
+                           {cookies.access_token && (
+                              <NavLink
+                                 to={"/create-recipes"}
+                                 className={(navClass) =>
+                                    navClass.isActive
+                                       ? "text-primaryColor text-[20px] leading-7 font-[700]"
+                                       : "text-textColor text-[20px] leading-7 font-[600] hover:text-primaryColor"
+                                 }
+                              >
+                                 Create Recipes
+                              </NavLink>
+                           )}
+                        </div>
 
                         <div className=''>
                            {cookies.access_token && (
@@ -88,12 +103,26 @@ const Header = () => {
                               </NavLink>
                            )}
                         </div>
+
+                        <div className='block lg:hidden'>
+                           <button className='bg-secondaryColor px-3 lg:px-4 py-2 lg:py-3 text-[14px] lg:text-[16px] text-white font-semibold my-3 rounded-[50px] border border-solid border-green-600 shadow-xl hover:bg-primaryColor'>
+                              {!cookies.access_token ? (
+                                 <Link to={"/login"}>Login</Link>
+                              ) : (
+                                 <>
+                                    <Link to={"/login"} onClick={handleLogout}>
+                                       Logout
+                                    </Link>
+                                 </>
+                              )}
+                           </button>
+                        </div>
                      </ul>
                   </div>
 
                   <div className='flex items-center'>
-                     <div className=''>
-                        <button className='bg-secondaryColor px-5 py-3 text-[18px] text-white font-bold my-3 rounded-[50px] border border-solid border-green-600 shadow-xl hover:bg-primaryColor'>
+                     <div className='hidden lg:block'>
+                        <button className='bg-secondaryColor px-3 lg:px-4 py-2 lg:py-3 text-[14px] lg:text-[16px] text-white font-semibold my-3 rounded-[50px] border border-solid border-green-600 shadow-xl hover:bg-primaryColor'>
                            {!cookies.access_token ? (
                               <Link to={"/login"}>Login</Link>
                            ) : (
@@ -105,7 +134,6 @@ const Header = () => {
                            )}
                         </button>
                      </div>
-
                      <span className='relative  lg:hidden' onClick={toggleMenu}>
                         <BiMenu className='h-7 w-7 cursor-pointer ml-4' />
                      </span>

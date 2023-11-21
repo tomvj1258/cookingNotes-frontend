@@ -16,6 +16,7 @@ const CreateRecipes = () => {
       instructions: "",
       image: "",
       cookingTime: 0,
+      author: "",
       userOwner: userId,
    });
 
@@ -194,7 +195,18 @@ const CreateRecipes = () => {
                         />
                      </div>
 
-                     <div className='flex items-center'>
+                     <div className='flex items-start'>
+                        <div className='my-8 flex items-center'>
+                           <label htmlFor='cooking time' className='hidden' />
+                           <input
+                              type='text'
+                              name='author'
+                              onChange={handleChange}
+                              placeholder='Author Name'
+                              className='text-[18px] leading-7 text-headingColor font-[500] bg-transparent w-full  md:mx-auto px-4 py-3 border-b-2 border-solid border-black focus:outline-none focus:border-primaryColor focus:shadow-md placeholder:text-textColor cursor-pointer rounded '
+                              required
+                           />
+                        </div>
                         <button
                            type='submit'
                            className='text-[20px] bg-primaryColor px-3 py-2 text-white font-[500] rounded-lg my-12 w-full md:w-1/2 ml-auto hover:bg-secondaryColor'
