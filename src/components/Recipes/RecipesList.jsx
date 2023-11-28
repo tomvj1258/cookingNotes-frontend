@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { lcRecipe } from "../../assets/data/recipeModel";
 import SidePanel from "../../pages/SidePanel";
 import { BsArrowRight } from "react-icons/bs";
 import { useCookies } from "react-cookie";
@@ -96,7 +95,17 @@ const RecipesList = () => {
                      <div className='col-span-4 lg:col-span-3  relative'>
                         <ul className=' grid grid-cols-1 lg:grid-cols-2 gap-x-5 gap-y-10 w-full shadow-2xl rounded-xl '>
                            {recipes.length === 0 ? (
-                              <HashLoader size={35} color='#ffffff' />
+                              <HashLoader
+                                 size={35}
+                                 color='#16A34A'
+                                 className='flex justify-center items-center m-5'
+                                 /* style={{
+                                    display: "flex",
+                                    justifyContent: "center",
+                                    alignItems: "Center",
+                                    margin: "20px",
+                                 }} */
+                              />
                            ) : (
                               recipes.map((recipe) => (
                                  <>
