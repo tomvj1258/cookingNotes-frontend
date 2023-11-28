@@ -95,7 +95,7 @@ const RecipesList = () => {
                   <div className='grid grid-cols-4 gap-4 '>
                      <div className='col-span-4 lg:col-span-3  relative'>
                         <ul className=' grid grid-cols-1 lg:grid-cols-2 gap-x-5 gap-y-10 w-full shadow-2xl rounded-xl '>
-                           {!recipes.length ? (
+                           {recipes.length === 0 ? (
                               <HashLoader size={35} color='#ffffff' />
                            ) : (
                               recipes.map((recipe) => (

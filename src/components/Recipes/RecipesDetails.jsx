@@ -54,7 +54,7 @@ const RecipesDetails = () => {
       <div>
          <section className='bg-green-50'>
             <div className='container  '>
-               {recipeDetail.length && (
+               {recipeDetail.length > 0 && (
                   <>
                      <div className='grid grid-cols-5 gap-9  '>
                         <div className='col-span-5 md:col-span-3 mt-4'>
