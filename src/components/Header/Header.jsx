@@ -45,7 +45,7 @@ const Header = () => {
 
    return (
       <>
-         <header className=' flex items-center bg-gradient-to-r from-green-300  via-gray-100 via-50% to-green-200 to-90% h-20 w-full'>
+         <header className=' flex items-center sticky top-0 z-30 bg-gradient-to-r from-green-300  via-gray-100 via-50% to-green-200 to-90% h-20 w-full'>
             <div className='container  '>
                <div className='flex items-center justify-between '>
                   <div className=''>
@@ -73,6 +73,21 @@ const Header = () => {
                               </li>
                            );
                         })}
+
+                        <div className=''>
+                           {cookies.access_token && (
+                              <NavLink
+                                 to={"/my-recipes"}
+                                 className={(navClass) =>
+                                    navClass.isActive
+                                       ? "text-primaryColor text-[20px] leading-7 font-[700]"
+                                       : "text-textColor text-[20px] leading-7 font-[600] hover:text-primaryColor"
+                                 }
+                              >
+                                 My Recipes
+                              </NavLink>
+                           )}
+                        </div>
 
                         <div className=''>
                            {cookies.access_token && (

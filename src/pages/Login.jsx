@@ -5,10 +5,12 @@ import { useCookies } from "react-cookie";
 import axios from "axios";
 import { BASE_URL } from "../config/config";
 import { toast } from "react-toastify";
+import HashLoader from "react-spinners/HashLoader";
 
 const Login = () => {
    const [email, setEmail] = useState("");
    const [password, setPassword] = useState("");
+   const [loading, setLoading] = useState(false);
 
    const navigate = useNavigate();
 
@@ -16,6 +18,7 @@ const Login = () => {
 
    const handleSubmit = async (e) => {
       e.preventDefault();
+      setLoading(true);
 
       try {
          const res = await axios.post(`${BASE_URL}/auth/login`, {
@@ -25,12 +28,14 @@ const Login = () => {
 
          setCookies("access_token", res.data.token);
          window.localStorage.setItem("userId", res.data.userId);
+         setLoading(false);
 
          toast.success(res.data.message);
 
          navigate("/");
       } catch (err) {
          console.error(err.message);
+         setLoading(false);
       }
    };
    return (
@@ -75,7 +80,11 @@ const Login = () => {
                               type='submit'
                               className='text-[20px] bg-primaryColor px-3 py-2 text-white font-[500] rounded-lg mt-20 w-full hover:bg-secondaryColor'
                            >
-                              Login
+                              {loading ? (
+                                 <HashLoader size={35} color='#ffffff' />
+                              ) : (
+                                 "Login"
+                              )}
                            </button>
                            <p className='mt-3 text-center '>
                               Don't have an account?{" "}

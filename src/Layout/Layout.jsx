@@ -4,15 +4,15 @@ import Router from "../routes/Router";
 // import Footer from "../components/Footer/Footer";
 
 const Layout = () => {
-   return (
-      <>
-         <Header />
-         <main>
-            <Router />
-         </main>
-         {/* <Footer /> */}
-      </>
-   );
+  return (
+    <>
+      <Header />
+      <main>
+        <Router />
+      </main>
+      {/* <Footer /> */}
+    </>
+  );
 };
 
 export default Layout;

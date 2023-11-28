@@ -8,6 +8,7 @@ import RecipesDetails from "../components/Recipes/RecipesDetails";
 import Login from "../pages/Login";
 import Signup from "../pages/Signup";
 import SidePanel from "../pages/SidePanel";
+import MyRecipes from "../pages/MyRecipes";
 
 const Router = () => {
    return (
@@ -16,6 +17,7 @@ const Router = () => {
             <Route path='/'>
                <Route index element={<Home />} />
                <Route path='home' element={<Home />} />
+               <Route path='my-recipes' element={<MyRecipes />} />
                <Route path='create-recipes' element={<CreateRecipes />} />
                <Route path='sidepanel' element={<SidePanel />} />
                <Route path='login' element={<Login />} />
