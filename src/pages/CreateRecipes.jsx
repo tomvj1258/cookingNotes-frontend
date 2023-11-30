@@ -50,9 +50,6 @@ const CreateRecipes = () => {
          // const data = await res.json();
 
          toast.success(res.data.message);
-         !cookies.access_token && navigate("/login");
-
-         navigate("/");
       } catch (err) {
          console.error("Err", err);
       }

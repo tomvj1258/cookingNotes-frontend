@@ -39,9 +39,12 @@ const SidePanel = () => {
                   </li>
                </ul>
 
-               <button className='btn px-2 w-full rounded-md'>
-                  <Link to={"/create-recipes"}> Create Recipes</Link>
-               </button>
+               <Link to={"/create-recipes"}>
+                  {" "}
+                  <button className='btn px-2 w-full rounded-md'>
+                     Create Recipes
+                  </button>
+               </Link>
             </div>
          </div>
       </div>

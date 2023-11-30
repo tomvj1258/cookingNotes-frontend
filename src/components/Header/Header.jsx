@@ -120,17 +120,21 @@ const Header = () => {
                         </div>
 
                         <div className='block lg:hidden'>
-                           <button className='bg-secondaryColor px-3 lg:px-4 py-2 lg:py-3 text-[14px] lg:text-[16px] text-white font-semibold my-3 rounded-[50px] border border-solid border-green-600 shadow-xl hover:bg-primaryColor'>
-                              {!cookies.access_token ? (
-                                 <Link to={"/login"}>Login</Link>
-                              ) : (
-                                 <>
-                                    <Link to={"/login"} onClick={handleLogout}>
+                           {!cookies.access_token ? (
+                              <Link to={"/login"}>
+                                 <button className='bg-secondaryColor px-3 lg:px-4 py-2 lg:py-3 text-[14px] lg:text-[16px] text-white font-semibold my-3 rounded-[50px] border border-solid border-green-600 shadow-xl hover:bg-primaryColor'>
+                                    Login
+                                 </button>
+                              </Link>
+                           ) : (
+                              <>
+                                 <Link to={"/login"} onClick={handleLogout}>
+                                    <button className='bg-secondaryColor px-3 lg:px-4 py-2 lg:py-3 text-[14px] lg:text-[16px] text-white font-semibold my-3 rounded-[50px] border border-solid border-green-600 shadow-xl hover:bg-primaryColor'>
                                        Logout
-                                    </Link>
-                                 </>
-                              )}
-                           </button>
+                                    </button>
+                                 </Link>
+                              </>
+                           )}
                         </div>
                      </ul>
                   </div>

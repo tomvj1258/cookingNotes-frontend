@@ -6,9 +6,12 @@ import heroImg3 from "../assets/images/heroImg6.jpg";
 import HashLoader from "react-spinners/HashLoader";
 import RecipesList from "../components/Recipes/RecipesList";
 import { Link } from "react-router-dom";
+import { useCookies } from "react-cookie";
 
 const Home = () => {
    const [loading, setLoading] = useState(false);
+   const [cookies] = useCookies(["access_token"]);
+
    return (
       <div className='bg-green-50'>
          <section className='bg-gradient-to-r from-gray-100  via-green-200 via-20% to-gray-100 '>
@@ -102,9 +105,21 @@ const Home = () => {
                         </ul>
                      </div>
                      <div className=''>
-                        <button className='btn px-2 my-7 w-3/4 rounded-full'>
-                           <Link to={"/create-recipes"}> Create Recipes</Link>
-                        </button>
+                        {cookies.access_token ? (
+                           <Link to={"/create-recipes"}>
+                              {" "}
+                              <button className='btn px-2 my-7 w-3/4 rounded-full'>
+                                 Create Recipes
+                              </button>
+                           </Link>
+                        ) : (
+                           <Link to={"/login"}>
+                              {" "}
+                              <button className='btn px-2 my-7 w-3/4 rounded-full'>
+                                 Create Recipes
+                              </button>
+                           </Link>
+                        )}
                      </div>
                   </div>
 
