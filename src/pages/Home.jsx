@@ -16,7 +16,7 @@ const Home = () => {
                <div className='grid grid-cols-2 gap-5'>
                   <div className='col-span-2 md:col-span-1'>
                      <div className='mt-5'>
-                        <h2 className='text-[45px] lg:text-center leading-12 font-[700] w-full lg:w-3/4 my-16 '>
+                        <h2 className='text-[45px]  leading-12 font-[700] w-full lg:w-3/4 my-16 '>
                            Welcome to{" "}
                            <span className='text-6xl text-secondaryColor font-mono'>
                               TastyBites

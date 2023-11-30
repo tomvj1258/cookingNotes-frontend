@@ -93,21 +93,16 @@ const RecipesList = () => {
 
                   <div className='grid grid-cols-4 gap-4 '>
                      <div className='col-span-4 lg:col-span-3  relative'>
-                        <ul className=' grid grid-cols-1 lg:grid-cols-2 gap-x-5 gap-y-10 w-full shadow-2xl rounded-xl '>
-                           {recipes.length === 0 ? (
-                              <HashLoader
-                                 size={35}
-                                 color='#16A34A'
-                                 className='flex justify-center items-center m-5'
-                                 /* style={{
-                                    display: "flex",
-                                    justifyContent: "center",
-                                    alignItems: "Center",
-                                    margin: "20px",
-                                 }} */
-                              />
-                           ) : (
-                              recipes.map((recipe) => (
+                        {recipes.length === 0 ? (
+                           <div className='flex flex-col gap-5 justify-center items-center col-span-2 bg-transparent my-10'>
+                              <HashLoader size={35} color='#16A34A' />
+                              <p className='text-[18px] font-semibold'>
+                                 Loading...
+                              </p>
+                           </div>
+                        ) : (
+                           <ul className=' grid grid-cols-1 lg:grid-cols-2 gap-x-5 gap-y-10 w-full shadow-2xl rounded-xl '>
+                              {recipes.map((recipe) => (
                                  <>
                                     <li
                                        key={recipe._id}
@@ -187,9 +182,9 @@ const RecipesList = () => {
                                        </div>
                                     </li>
                                  </>
-                              ))
-                           )}
-                        </ul>
+                              ))}
+                           </ul>
+                        )}
                      </div>
                      <div className='col-span-4 mt-7 lg:col-span-1  sticky top-[30%] translate-y-[-10%] self-start right-0'>
                         <SidePanel />
