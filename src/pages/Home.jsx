@@ -11,6 +11,7 @@ import { useCookies } from "react-cookie";
 const Home = () => {
   const [loading, setLoading] = useState(false);
   const [cookies] = useCookies(["access_token"]);
+  // console.log(cookies);
 
   return (
     <div className="bg-green-50">
